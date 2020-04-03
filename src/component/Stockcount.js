@@ -126,6 +126,8 @@ export default class Stockcount extends Component {
     render() {
         return (
             <div>
+                <h1>Stockcount</h1>
+                <br />
                 <Button variant="primary" style={{ marginBottom: 15, marginLeft: 15 }} onClick={() => this.handleShow('round')}>
                     Create Round
                 </Button>
@@ -171,7 +173,7 @@ export default class Stockcount extends Component {
                                                         <td>{k2+1}</td>
                                                         <td>{v2.name}</td>
                                                         <td style={{textAlign: 'center'}}>
-                                                            <Link to='/manage'>Manage</Link>
+                                                            <Link to={`/manage/${v2.sub_round_id}`}>Manage</Link>
                                                         </td>
                                                     </tr>
                                                 )

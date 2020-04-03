@@ -10,10 +10,8 @@ export default class App extends Component {
     return (
       <Router>
         <div style={{margin: 50}}>
-          <h1>Stockcount</h1>
-          <br />
           <Route exact path='/' component={Stockcount} />
-          <Route exact path='/manage' component={Manage} />
+          <Route exact path='/manage/:id' component={Manage} />
         </div>
       </Router>
     )
