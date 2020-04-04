@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Stockcount from './component/Stockcount'
 import Manage from './component/Manage'
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom'
 import Company from './component/Company'
 
 export default class App extends Component {
@@ -15,12 +15,12 @@ export default class App extends Component {
     onChange = (e) => {
         this.setState({ company_id: e.target.value })
         localStorage.setItem('company_id', e.target.value);
-        window.location = '/';
+        window.location = `${process.env.PUBLIC_URL}/`;
     }
 
     render() {
         return (
-            <Router>
+            <Router basename={`${process.env.PUBLIC_URL}/`}>
                 <div style={{margin: 15}}>
                     <Company companyId={this.state.company_id} onChange={this.onChange} />
                 </div>

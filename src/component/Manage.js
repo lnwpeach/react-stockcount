@@ -16,7 +16,7 @@ export default class Manage extends Component {
     }
 
     componentDidMount() {
-        this.setState({company_id: localStorage.getItem('company_id')})
+        this.setState({company_id: localStorage.getItem('company_id') || 2 })
 
         if (this.props.match.params) {
             this.setState({ sub_round_id: this.props.match.params.id }, () => {

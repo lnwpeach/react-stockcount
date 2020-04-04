@@ -21,7 +21,7 @@ export default class Stockcount extends Component {
     }
 
     componentDidMount() {
-        this.setState({ company_id: localStorage.getItem('company_id') }, () => {
+        this.setState({ company_id: localStorage.getItem('company_id') || 2 }, () => {
             this.retrieve()
         })
     }
