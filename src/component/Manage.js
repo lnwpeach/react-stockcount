@@ -1,31 +1,34 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import {Button} from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 export default class Manage extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            company_id: 2,
             sub_round_id: 0,
             product_id: '',
             products: [],
             qty: 1
         }
-
     }
 
     componentDidMount() {
+        this.setState({company_id: localStorage.getItem('company_id')})
+
         if (this.props.match.params) {
             this.setState({ sub_round_id: this.props.match.params.id }, () => {
                 this.retrieve()
             })
         }
-        
+        this.product_id.focus()
     }
 
     retrieve = () => {
         let q = {
-            company_id: 2,
+            company_id: this.state.company_id,
             sub_round_id: this.state.sub_round_id
         }
         let json = JSON.stringify(q)
@@ -42,7 +45,7 @@ export default class Manage extends Component {
 
     search_product = () => {
         let q = {
-            company_id: 2,
+            company_id: this.state.company_id,
             sub_round_id: this.state.sub_round_id,
             product_id: this.state.product_id,
             qty: this.state.qty
@@ -64,7 +67,7 @@ export default class Manage extends Component {
         if (!window.confirm('Are you sure?')) return false;
         
         let q = {
-            company_id: 2,
+            company_id: this.state.company_id,
             id: id
         }
         let json = JSON.stringify(q)
@@ -95,6 +98,7 @@ export default class Manage extends Component {
         return (
             <div>
                 <h1>Manage</h1>
+                <Link to='/' style={{float: 'right'}}>Back</Link>
                 <br />
                 <div style={{textAlign: 'center', marginBottom: 15}}>
                     <label>Product ID: </label>
