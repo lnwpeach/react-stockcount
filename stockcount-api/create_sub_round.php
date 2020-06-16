@@ -14,7 +14,7 @@ $company_id = !empty($data['company_id']) ? $data['company_id']*1 : 0;
 $id         = !empty($data['id']) ? $data['id']*1 : 0;
 $name       = !empty($data['name']) ? $data['name'] : '';
 
-$sql = "insert into sub_round set company_id = '{$company_id}', round_id = '{$id}', name = :name";
+$sql = "insert into sub_round set company_id = '{$company_id}', round_id = '{$id}', name = :name, create_dt = NOW()";
 $sth = $pdo->prepare($sql); $sth->execute([':name' => $name]);
 
 $answer['success'] = 1;
