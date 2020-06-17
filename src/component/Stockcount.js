@@ -166,6 +166,7 @@ export default class Stockcount extends Component {
                         <tr>
                             <th style={{width:50}}>#</th>
                             <th>Name</th>
+                            <th style={{width:200}}>วันที่สร้าง</th>
                             <th style={{width:200}}></th>
                             <th style={{width:50}}></th>
                         </tr>
@@ -182,6 +183,7 @@ export default class Stockcount extends Component {
                                                 <button className='btn btn-sm btn-danger' style={{display: show ? '' : 'none'}} onClick={() => { this.hideDetail(v.round_id) }}><i className='fa fa-minus' /></button>
                                             </td>
                                             <td>{v.name}</td>
+                                            <td>{v.create_dt}</td>
                                             <td>
                                                 <Button variant="secondary" size='sm' onClick={() => this.handleShow('sub_round', v.round_id)}>
                                                     Create Sub Round
@@ -208,6 +210,7 @@ export default class Stockcount extends Component {
                                                     <tr key={v2.sub_round_id}>
                                                         <td>{k2+1}</td>
                                                         <td>{v2.name}</td>
+                                                        <td>{v2.create_dt}</td>
                                                         <td style={{textAlign: 'center'}}>
                                                             <Link to={`/manage/${v2.sub_round_id}`}>Manage</Link>
                                                         </td>
@@ -229,6 +232,7 @@ export default class Stockcount extends Component {
                                                         <tr>
                                                             <td style={{width:50}}>#</td>
                                                             <td>Name</td>
+                                                            <td style={{width:100}}>วันที่สร้าง</td>
                                                             <td style={{width:100}}></td>
                                                             <td style={{width:50}}></td>
                                                         </tr>

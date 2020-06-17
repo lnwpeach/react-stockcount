@@ -10,6 +10,8 @@ export default class App extends Component {
         this.state = {
             company_id: localStorage.getItem('company_id') || 2
         }
+
+
     }
 
     onChange = (e) => {

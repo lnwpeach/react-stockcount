@@ -94,6 +94,39 @@ export default class Manage extends Component {
         this.setState({[e.target.name]: e.target.value})
     }
 
+    GroupQty = (e) => {
+        
+        this.setState({company_id: localStorage.getItem('company_id') || 2 })
+
+        if (this.props.match.params) 
+        {
+            if (!window.confirm('Are you sure?')) return false;
+
+            let q = {
+                company_id: this.state.company_id,
+                id: this.props.match.params.id
+            }
+
+            let json = JSON.stringify(q)
+
+            axios.post('../stockcount-api/group_product.php', json).then(
+                (res) => {
+
+                    if (res.data.success != 1) {
+                        alert(res.data.message)
+                    }
+    
+                    this.retrieve()
+                }
+            )
+
+
+         
+
+        }
+
+    }
+
     render() {
         return (
             <div>
@@ -105,6 +138,7 @@ export default class Manage extends Component {
                     <input name='product_id' type='text' ref={(input) => {this.product_id = input}} style={{width:250, marginLeft:15}} placeholder='Type Barcode and Press Enter' onChange={this.onChange} onKeyDown={this.onKeyDown} />
                     <label style={{marginLeft:15}}>QTY: </label>
                     <input name='qty' type='text' value={this.state.qty} style={{width:60, marginLeft:15, textAlign: 'center'}} onChange={this.onChange} onKeyDown={this.onKeyDown} />
+                    <button className="btn btn-success" style={{marginLeft:15, height:35}} onClick={this.GroupQty}>Group</button>
                 </div>
                 <table className='table'>
                     <thead>
