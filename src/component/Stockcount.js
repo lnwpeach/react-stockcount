@@ -200,7 +200,7 @@ export default class Stockcount extends Component {
                                     let detail = this.state.sub_round[v.round_id.replace('.1', '')]
                                     let html = (
                                         <tr>
-                                            <td colSpan='4'><center>No data</center></td>
+                                            <td colSpan='5'><center>No data</center></td>
                                         </tr>
                                     )
                                     if(detail && detail.length > 0) {
@@ -226,7 +226,7 @@ export default class Stockcount extends Component {
                                     }
                                     return (
                                         <tr key={v.round_id} style={{display: show ? '' : 'none'}}>
-                                            <td colSpan='4' style={{ paddingLeft: 80, paddingRight: 80}}>
+                                            <td colSpan='5' style={{ paddingLeft: 80, paddingRight: 80}}>
                                                 <table className='table table-sm table-bordered'>
                                                     <thead>
                                                         <tr>
