@@ -90,8 +90,8 @@ export default class Stockcount extends Component {
 
     showDetail = (id, load) => {
         let sub_round_show = this.state.sub_round_show.concat(id)
-        this.setState({ sub_round_show: sub_round_show })
         if (this.state.sub_round[id] && !load) {
+            this.setState({ sub_round_show: sub_round_show })
             return false
         }
 
@@ -111,6 +111,7 @@ export default class Stockcount extends Component {
                 let sub_round = this.state.sub_round
                 sub_round[id] = res.data.result
                 this.setState({ sub_round: sub_round })
+                this.setState({ sub_round_show: sub_round_show })
             }
         )
     }

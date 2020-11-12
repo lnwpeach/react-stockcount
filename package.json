@@ -42,6 +42,6 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:80/react/stockcount",
-  "homepage": ""
+  "proxy": "http://localhost:80/react/react-stockcount",
+  "homepage": "react-stockcount"
 }
