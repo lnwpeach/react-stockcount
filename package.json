@@ -43,5 +43,5 @@
     ]
   },
   "proxy": "http://localhost:80/react/react-stockcount",
-  "homepage": "react-stockcount"
+  "homepage": ""
 }
