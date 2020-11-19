@@ -42,6 +42,10 @@
       "last 1 safari version"
     ]
   },
+<<<<<<< HEAD
   "proxy": "http://localhost:80/react/react-stockcount",
+=======
+  "proxy": "http://localhost:80/react/react-stockcount/public",
+>>>>>>> 0ad200d78239f42545083689800e536c57061331
   "homepage": ""
 }
