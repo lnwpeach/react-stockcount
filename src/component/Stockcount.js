@@ -44,7 +44,9 @@ export default class Stockcount extends Component {
                 })
                 this.setState({round: temp});
             }
-        )
+        ).catch((err) => {
+            console.log(err)
+        })
     }
 
     handleShow = (type, id=0) => {
