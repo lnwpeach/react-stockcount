@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import Stockcount from './component/Stockcount'
 import Manage from './component/Manage'
-import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom'
+import Report from './component/Report'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 import Company from './component/Company'
 
 export default class App extends Component {
@@ -29,6 +30,7 @@ export default class App extends Component {
                 <div style={{margin: 50}}>
                     <Route exact path='/' component={Stockcount} />
                     <Route exact path='/manage/:id' component={Manage} />
+                    <Route exact path='/report/:id' component={Report} />
                 </div>
             </Router>
         )

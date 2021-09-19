@@ -44,6 +44,10 @@ export default class Manage extends Component {
     }
 
     search_product = () => {
+        if (this.state.product_id == '') {
+            alert("กรุณากรอกรหัส SKU ");
+            return false;
+        }
         let q = {
             company_id: this.state.company_id,
             sub_round_id: this.state.sub_round_id,

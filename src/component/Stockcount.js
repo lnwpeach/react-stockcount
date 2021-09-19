@@ -171,7 +171,7 @@ export default class Stockcount extends Component {
                             <th>Name</th>
                             <th style={{width:200}}>วันที่สร้าง</th>
                             <th style={{width:200}}></th>
-                            <th style={{width:50}}></th>
+                            <th style={{width:100}}></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -193,6 +193,8 @@ export default class Stockcount extends Component {
                                                 </Button>
                                             </td>
                                             <td>
+                                                <Link to={`/report/${v.round_id}`} className="btn btn-primary btn-sm"><i className='fa fa-search' /></Link>
+                                                &nbsp;&nbsp;
                                                 <Button variant="danger" size='sm' onClick={() => this.deleteRound('round', v.round_id)}>
                                                     <i className='fa fa-trash' />
                                                 </Button>
