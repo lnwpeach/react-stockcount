@@ -33,12 +33,13 @@ export default class Stockcount extends Component {
         let json = JSON.stringify(q)
         axios.post('stockcount-api/retrieve_round.php', json).then(
             (res) => {
-                if (res.data.success != 1) {
+                if (res.data.success !== 1) {
                     alert(res.data.message)
                 }
 
                 let temp = []
                 res.data.result.forEach((v) => {
+                    v.round_id += '';
                     temp.push(v)
                     temp.push({round_id: v.round_id+'.1'})
                 })
@@ -67,7 +68,7 @@ export default class Stockcount extends Component {
         }
 
         let url = 'stockcount-api/create_round.php'
-        if (type == 'sub_round') {
+        if (type === 'sub_round') {
             q.id = this.state.round_id
             url = 'stockcount-api/create_sub_round.php'
         }
@@ -75,10 +76,10 @@ export default class Stockcount extends Component {
         let json = JSON.stringify(q)
         axios.post(url, json).then(
             (res) => {
-                if(res.data.success != 1) {
+                if(res.data.success !== 1) {
                     alert(res.data.message)
                 }
-                if(type == 'sub_round') this.showDetail(q.id, 1)
+                if(type === 'sub_round') this.showDetail(q.id, 1)
                 else this.retrieve()
             }
         )
@@ -87,7 +88,7 @@ export default class Stockcount extends Component {
     }
 
     onKeyDown = (e) => { 
-        if (e.which == 13) this.createRound()
+        if (e.which === 13) this.createRound()
     }
 
     showDetail = (id, load) => {
@@ -106,7 +107,7 @@ export default class Stockcount extends Component {
         let json = JSON.stringify(q)
         axios.post(url, json).then(
             (res) => {
-                if (res.data.success != 1) {
+                if (res.data.success !== 1) {
                     alert(res.data.message)
                 }
 
@@ -136,18 +137,18 @@ export default class Stockcount extends Component {
         }
 
         let url = 'stockcount-api/delete_round.php'
-        if (type == 'sub_round') {
+        if (type === 'sub_round') {
             url = 'stockcount-api/delete_sub_round.php'
         }
 
         let json = JSON.stringify(q)
         axios.post(url, json).then(
             (res) => {
-                if (res.data.success != 1) {
+                if (res.data.success !== 1) {
                     alert(res.data.message)
                 }
 
-                if (type == 'sub_round') {
+                if (type === 'sub_round') {
                     round_id = round_id.replace('.1', '')
                     this.showDetail(round_id, 1)
                 }
@@ -177,8 +178,8 @@ export default class Stockcount extends Component {
                     <tbody>
                         {
                             this.state.round.map((v) => {
-                                let show = this.state.sub_round_show.indexOf(v.round_id.replace('.1', '')) != -1 ? true : false
-                                if(v.round_id.indexOf('.1') == -1) {
+                                let show = this.state.sub_round_show.indexOf(v.round_id.replace('.1', '')) !== -1 ? true : false
+                                if(v.round_id.indexOf('.1') === -1) {
                                     return (
                                         <tr key={v.round_id}>
                                             <td>

@@ -34,7 +34,7 @@ export default class Manage extends Component {
         let json = JSON.stringify(q)
         axios.post('../stockcount-api/retrieve_product.php', json).then(
             (res) => {
-                if (res.data.success != 1) {
+                if (res.data.success !== 1) {
                     alert(res.data.message)
                 }
 
@@ -44,7 +44,7 @@ export default class Manage extends Component {
     }
 
     search_product = () => {
-        if (this.state.product_id == '') {
+        if (this.state.product_id === '') {
             alert("กรุณากรอกรหัส SKU ");
             return false;
         }
@@ -57,7 +57,7 @@ export default class Manage extends Component {
         let json = JSON.stringify(q)
         axios.post('../stockcount-api/search_product.php', json).then(
             (res) => {
-                if (res.data.success != 1) {
+                if (res.data.success !== 1) {
                     alert(res.data.message)
                 }
 
@@ -77,7 +77,7 @@ export default class Manage extends Component {
         let json = JSON.stringify(q)
         axios.post('../stockcount-api/delete_product.php', json).then(
             (res) => {
-                if (res.data.success != 1) {
+                if (res.data.success !== 1) {
                     alert(res.data.message)
                 }
 
@@ -116,7 +116,7 @@ export default class Manage extends Component {
             axios.post('../stockcount-api/group_product.php', json).then(
                 (res) => {
 
-                    if (res.data.success != 1) {
+                    if (res.data.success !== 1) {
                         alert(res.data.message)
                     }
     

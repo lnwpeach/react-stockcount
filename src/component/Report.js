@@ -33,7 +33,7 @@ export default class Report extends Component {
         let json = JSON.stringify(q)
         axios.post('../stockcount-api/retrieve_report.php', json).then(
             (res) => {
-                if (res.data.success != 1) {
+                if (res.data.success !== 1) {
                     alert(res.data.message)
                 }
 
